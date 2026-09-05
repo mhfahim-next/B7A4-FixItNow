@@ -17,7 +17,7 @@ model Booking {
   status BookingStatus @default(REQUESTED)
 
   payment Payment?
-
+  reviews Review[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

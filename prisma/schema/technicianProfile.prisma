@@ -9,7 +9,7 @@ model TechnicianProfile {
   hourlyRate     Float
   location       String
   averageRating  Float @default(0)
-  availability   Json?
+  availability   Boolean @default(true)
 
   services Service[]
   bookings Booking[] @relation("TechnicianBookings")
