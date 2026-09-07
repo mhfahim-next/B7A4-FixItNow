@@ -5,7 +5,11 @@ import { technicianController } from "./technician.controller";
 
 const router = Router();
 
-router.post("/", technicianController.createTechnicianProfile);
+// router.post("/", technicianController.createTechnicianProfile);
+
+router.get ("/", technicianController.allTechnician)
+
+
 
 
 

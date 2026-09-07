@@ -1,8 +1,8 @@
 export interface IService {
-  title: string;
+  name: string;
   description: string;
   price: number;
-  technicianId: string;
+  // userId: string;
   categoryId: string;
 }
 

@@ -24,6 +24,7 @@ const registerUserIntoDB = async (payload: IRegisterUser) => {
   const hashedPassword = await bcrypt.hash(payload.password, 10);
 
 
+
   const result = await prisma.user.create({
     data: {
       name: payload.name,
@@ -35,6 +36,19 @@ const registerUserIntoDB = async (payload: IRegisterUser) => {
       password: true
     }
   });
+
+  if (payload.role === "TECHNICIAN") {
+    await prisma.technicianProfile.create({
+      data: {
+        userId: result.id,
+        experience: payload.experience ?? 0,
+        hourlyRate: payload.hourlyRate ?? 0,
+        location: payload.location ?? "",
+        skills: [],
+      },
+    });
+  }
+
 
   return result;
 };

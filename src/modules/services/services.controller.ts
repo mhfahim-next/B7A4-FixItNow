@@ -6,9 +6,9 @@ import { servicesService } from "./services.service";
 
 
 const createService = catchAsync(async (req: Request, res: Response) => {
-
-    
-  const result = await servicesService.createService(req.body);
+  // const userId =  req.user?.id as string
+    // console.log(req.user?.id)
+  const result = await servicesService.createService(req.body,req.user?.id as string);
 
   sendResponse(res, {
     statusCode: httpStatus.CREATED,
