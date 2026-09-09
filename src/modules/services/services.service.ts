@@ -3,8 +3,6 @@ import { IService } from "./services.interface";
 
 
 const createService = async (payload: IService, userId: string) => {
-  // const userId =  payload.userId;
-  console.log(userId)
   const technician = await prisma.technicianProfile.findUnique({
     where: {
       userId,

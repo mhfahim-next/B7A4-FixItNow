@@ -25,30 +25,54 @@ const registerUserIntoDB = async (payload: IRegisterUser) => {
 
 
 
-  const result = await prisma.user.create({
-    data: {
-      name: payload.name,
-      email: payload.email,
-      password: hashedPassword,
-      role: payload.role,
-    },
-    omit: {
-      password: true
-    }
-  });
+  // const result = await prisma.user.create({
+  //   data: {
+  //     name: payload.name,
+  //     email: payload.email,
+  //     password: hashedPassword,
+  //     role: payload.role,
+  //   },
+  //   omit: {
+  //     password: true
+  //   }
+  // });
 
-  if (payload.role === "TECHNICIAN") {
-    await prisma.technicianProfile.create({
+  // if (payload.role === "TECHNICIAN") {
+  //   await prisma.technicianProfile.create({
+  //     data: {
+  //       userId: result.id,
+  //       experience: payload.experience ?? 0,
+  //       hourlyRate: payload.hourlyRate ?? 0,
+  //       location: payload.location ?? "",
+  //       skills: [],
+  //     },
+  //   });
+  // }
+
+  const result = await prisma.$transaction(async (tx) => {
+    const user = await tx.user.create({
       data: {
-        userId: result.id,
-        experience: payload.experience ?? 0,
-        hourlyRate: payload.hourlyRate ?? 0,
-        location: payload.location ?? "",
-        skills: [],
+        name: payload.name,
+        email: payload.email,
+        password: hashedPassword,
+        role: payload.role,
       },
     });
-  }
 
+    if (payload.role === "TECHNICIAN") {
+      await tx.technicianProfile.create({
+        data: {
+          userId: user.id,
+          experience: payload.experience ?? 0,
+          hourlyRate: payload.hourlyRate ?? 0,
+          location: payload.location ?? "",
+          skills: [],
+        },
+      });
+    }
+
+    return user;
+  });
 
   return result;
 };
