@@ -31,6 +31,39 @@ const aTechnicianProfile = catchAsync(
   }
 )
 
+const updateTechnicianProfile = catchAsync( 
+
+  async (req: Request, res: Response ) =>{
+    console.log("req.user?.id", req.user?.id)
+    console.log("req.body", req.body)
+    const result = await technicianService.updateTechnicianProfile(req.user?.id as string, req.body);
+
+    sendResponse(res, {
+      statusCode: httpStatus.CREATED,
+      success: true,
+      message: "Technician profile updated successfully",
+      data: result,
+    });
+  }
+) 
+
+const updateAvailability = catchAsync(
+  async (req: Request, res: Response ) =>{
+    const result = await technicianService.updateAvailability(req.user?.id as string, req.body.availability);
+
+    sendResponse(res, {
+      statusCode: httpStatus.CREATED,
+      success: true,
+      message: "Technician availability updated successfully",
+      data: result,
+    });
+  }
+) 
+
+
+
+
+
 
 // const createTechnicianProfile = catchAsync(
 //   async (req: Request, res: Response) => {
@@ -49,4 +82,6 @@ export const technicianController = {
   // createTechnicianProfile,
   allTechnician,
   aTechnicianProfile,
+  updateTechnicianProfile,
+  updateAvailability,
 }; 

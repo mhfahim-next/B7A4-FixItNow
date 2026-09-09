@@ -22,6 +22,54 @@ const getATechnicianProfileFromDB = async (id: string) => {
   return result;
 };
 
+
+const updateTechnicianProfile = async (id: string, payload: ITechnicianProfile) => {
+
+  const isExist = await prisma.technicianProfile.findUnique({
+    where: {
+      userId: id,
+    },
+  });
+
+  if (!isExist) {
+    throw new Error("Technician profile not found");
+  }
+
+  const result = await prisma.technicianProfile.update({
+    where: {
+      userId: id,
+    },
+    data: payload,
+  });
+
+  return result;
+};
+
+
+const updateAvailability = async (id: string, availability: boolean) => {
+
+  const isExist = await prisma.technicianProfile.findUnique({
+    where: {
+      userId: id,
+    },
+  });
+
+  if (!isExist) {
+    throw new Error("Technician profile not found");
+  }
+
+  const result = await prisma.technicianProfile.update({
+    where: {
+      userId: id,
+    },
+    data: {
+      availability: availability,
+    },
+  });
+
+  return result;
+};
+
 // const createTechnicianProfile = async (payload: ITechnicianProfile) => {
     
 //   const isExist = await prisma.technicianProfile.findUnique({
@@ -44,4 +92,6 @@ export const technicianService = {
   // createTechnicianProfile,
   getAllTechnician,
   getATechnicianProfileFromDB,
+  updateTechnicianProfile,
+  updateAvailability,
 };

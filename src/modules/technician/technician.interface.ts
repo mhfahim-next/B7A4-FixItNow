@@ -12,6 +12,7 @@ export interface ITechnicianUpdate {
   experience?: number;
   hourlyRate?: number;
   location?: string;
+  skills?: string[];
 }
 
 export interface IAvailability {
