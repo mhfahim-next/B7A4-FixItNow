@@ -5,6 +5,7 @@ import config from "./config";
 import authRoutes from "./modules/auth/auth.route";
 import serviceRoutes from "./modules/services/services.route";
 import technicianRoutes from "./modules/technician/technician.route";
+import categoryRoutes from "./modules/categories/categories.route";
 
 
 const app : Application = express();
@@ -23,9 +24,10 @@ app.get("/",(req: Request, res: Response)=>{
 })
 
 app.use("/api/auth", authRoutes);
-
 app.use("/api/services", serviceRoutes);
 app.use("/api/technicians", technicianRoutes);
-// app.use("/api/users", userRoutes)
-// app.use("/api/auth", authRoutes)
+app.use("/api/categories", categoryRoutes);
+
+
+
 export default app;

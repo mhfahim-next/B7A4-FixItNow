@@ -8,7 +8,9 @@ model Service {
   name        String
   description String
   price       Float
-  
+  location    String @default("Anywhere")
+
+
   bookings Booking[]
 
   createdAt DateTime @default(now())

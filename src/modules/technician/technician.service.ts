@@ -8,6 +8,20 @@ const getAllTechnician = async () => {
 
 }
 
+const getATechnicianProfileFromDB = async (id: string) => {
+  const result = await prisma.technicianProfile.findUnique({
+    where: {
+     id: id,
+    },
+  });
+
+  if (!result) {
+    throw new Error("Technician profile not found");
+  }
+
+  return result;
+};
+
 // const createTechnicianProfile = async (payload: ITechnicianProfile) => {
     
 //   const isExist = await prisma.technicianProfile.findUnique({
@@ -28,5 +42,6 @@ const getAllTechnician = async () => {
 
 export const technicianService = {
   // createTechnicianProfile,
-  getAllTechnician
+  getAllTechnician,
+  getATechnicianProfileFromDB,
 };
