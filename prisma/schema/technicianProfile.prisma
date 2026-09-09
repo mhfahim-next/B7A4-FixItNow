@@ -12,7 +12,7 @@ model TechnicianProfile {
   availability   Boolean @default(true)
 
   services Service[]
-  bookings Booking[] @relation("TechnicianBookings")
+  // bookings Booking[] @relation("TechnicianBookings")
   reviews Review[]
 
   createdAt DateTime @default(now())

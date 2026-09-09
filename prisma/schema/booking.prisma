@@ -1,20 +1,16 @@
 model Booking {
   id String @id @default(uuid())
+  bookingDate DateTime
+  timeSlot     String?
+  address     String
+  note        String?
+  status BookingStatus @default(REQUESTED)
 
   customerId String
   customer   User   @relation("CustomerBookings", fields: [customerId], references: [id], onDelete: Cascade)
 
-  technicianId String
-  technician   TechnicianProfile @relation("TechnicianBookings", fields: [technicianId], references: [id])
-
   serviceId String
   service   Service @relation(fields: [serviceId], references: [id])
-
-  bookingDate DateTime
-
-  address String
-
-  status BookingStatus @default(REQUESTED)
 
   payment Payment?
   reviews Review[]
