@@ -4,16 +4,16 @@ model TechnicianProfile {
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   bio           String?
-  skills         String[]
-  experience     Int
-  hourlyRate     Float
-  location       String
-  averageRating  Float @default(0)
-  availability   Boolean @default(true)
+  skills        String[]
+  experience    Int
+  hourlyRate    Float
+  location      String
+  averageRating Float    @default(0)
+  availability  Boolean  @default(true)
 
   services Service[]
-  // bookings Booking[] @relation("TechnicianBookings")
-  reviews Review[]
+  bookings Booking[] @relation("TechnicianBookings")
+  reviews  Review[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

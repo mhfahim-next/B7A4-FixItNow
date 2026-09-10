@@ -70,6 +70,28 @@ const updateAvailability = async (id: string, availability: boolean) => {
   return result;
 };
 
+const getTechnicianBookingsFromDB = async (id: string) => {
+  
+  console.log("id", id)
+
+  const findTechnician = await prisma.technicianProfile.findUnique({
+    where: {
+      userId: id,
+    },
+  });
+
+  if (!findTechnician) {
+    throw new Error("Technician profile not found in bookings");
+  }
+
+  const result = await prisma.booking.findMany({
+    where: {
+      technicianId: findTechnician.id,
+    },
+  });
+  return result;
+};
+
 // const createTechnicianProfile = async (payload: ITechnicianProfile) => {
     
 //   const isExist = await prisma.technicianProfile.findUnique({
@@ -94,4 +116,5 @@ export const technicianService = {
   getATechnicianProfileFromDB,
   updateTechnicianProfile,
   updateAvailability,
+  getTechnicianBookingsFromDB,
 };

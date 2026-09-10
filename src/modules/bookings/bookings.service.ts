@@ -29,6 +29,7 @@ const addBookingInDB = async (bookingData: IBookingCreate, customerId: string) =
 
   const booking = await prisma.booking.create({
     data: {
+        technicianId: service.technicianId,
       customerId: customerId,
       serviceId: bookingData.serviceId,
       bookingDate: new Date(bookingData.bookingDate),

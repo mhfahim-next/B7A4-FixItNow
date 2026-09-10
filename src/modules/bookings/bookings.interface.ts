@@ -4,6 +4,7 @@ export interface IBookingCreate {
     timeSlot: string;
     address: string;
     note?: string;
+    technicianId: string;
   }
   
   export interface IBooking {

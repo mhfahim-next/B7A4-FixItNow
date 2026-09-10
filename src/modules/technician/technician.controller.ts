@@ -60,7 +60,19 @@ const updateAvailability = catchAsync(
   }
 ) 
 
+const getTechnicianBookings = catchAsync(
+  async (req: Request, res: Response ) =>{
+    // console.log("req.user?.id", req.user?.id)
+    const result = await technicianService.getTechnicianBookingsFromDB(req.user?.id as string);
 
+    sendResponse(res, {
+      statusCode: httpStatus.CREATED,
+      success: true,
+      message: "Technician bookings retrieved successfully",
+      data: result,
+    });
+  }
+) 
 
 
 
@@ -84,4 +96,5 @@ export const technicianController = {
   aTechnicianProfile,
   updateTechnicianProfile,
   updateAvailability,
+  getTechnicianBookings,
 }; 

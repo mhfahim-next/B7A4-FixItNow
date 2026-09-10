@@ -8,10 +8,12 @@ const router = Router();
 // router.post("/", technicianController.createTechnicianProfile);
 
 router.get ("/", technicianController.allTechnician);
+router.get("/bookings/" , auth("TECHNICIAN"), technicianController.getTechnicianBookings);
+
 router.get("/:id", technicianController.aTechnicianProfile);
 router.put("/profile/", auth("TECHNICIAN"), technicianController.updateTechnicianProfile);
 router.put("/availability/", auth("TECHNICIAN"), technicianController.updateAvailability);
-// router.get("/bookings" , auth("TECHNICIAN"), technicianController.getTechnicianBookings);
+
 
 
 
