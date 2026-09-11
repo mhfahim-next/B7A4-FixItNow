@@ -3,6 +3,7 @@ import { catchAsync } from "../../utils/catchAsync";
 import sendResponse from "../../utils/seandResponse";
 import { technicianService } from "./technician.service";
 import httpStatus from "http-status";
+import { IBookingStatusUpdate } from "./technician.interface";
 
 
 const allTechnician = catchAsync(
@@ -74,8 +75,31 @@ const getTechnicianBookings = catchAsync(
   }
 ) 
 
+const getaTechnicianBooking = catchAsync(
+  async (req: Request, res: Response ) =>{
+    const result = await technicianService.getaTechnicianBookingFromDB(req.user?.id as string, req.params.id as string);
 
+    sendResponse(res, {
+      statusCode: httpStatus.CREATED,
+      success: true,
+      message: "Technician booking retrieved successfully",
+      data: result,
+    });
+  }
+)   
 
+const updateBookingStatus = catchAsync(
+  async (req: Request, res: Response ) =>{
+    const result = await technicianService.updateBookingStatusInDB(req.user?.id as string, req.params.id as string, req.body );
+
+    sendResponse(res, {
+      statusCode: httpStatus.CREATED,
+      success: true,
+      message: "Technician booking status updated successfully",
+      data: result,
+    });
+  }
+) 
 
 // const createTechnicianProfile = catchAsync(
 //   async (req: Request, res: Response) => {
@@ -97,4 +121,6 @@ export const technicianController = {
   updateTechnicianProfile,
   updateAvailability,
   getTechnicianBookings,
+  getaTechnicianBooking,
+  updateBookingStatus,
 }; 

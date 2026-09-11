@@ -31,7 +31,7 @@ const getUsersBookings = catchAsync(async (req: Request, res: Response) => {
 
 const getSingleBooking = catchAsync(async (req: Request, res: Response) => {
     const bookingId = req.params.id;
-    const result = await bookingService.getSingleBookingFromDB(bookingId);
+    const result = await bookingService.getSingleBookingFromDB(bookingId as string);
 
     sendResponse(res, {
         statusCode: httpStatus.OK,

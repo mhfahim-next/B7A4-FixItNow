@@ -8,4 +8,4 @@ router.post("/", auth("TECHNICIAN"), serviceController.createService);
 router.get("/", serviceController.getAllServices)
 
 
-export default router;
+export const serviceRoutes = router;

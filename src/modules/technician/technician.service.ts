@@ -1,5 +1,5 @@
 import { prisma } from "../../lib/prisma";
-import { ITechnicianProfile } from "./technician.interface";
+import { IBookingStatusUpdate, ITechnicianProfile } from "./technician.interface";
 import httpStatus from "http-status";
 
 const getAllTechnician = async () => {
@@ -92,6 +92,63 @@ const getTechnicianBookingsFromDB = async (id: string) => {
   return result;
 };
 
+const getaTechnicianBookingFromDB = async (userId: string, bookingId: string) => {
+
+  const findTechnician = await prisma.technicianProfile.findUnique({
+    where: {
+      userId: userId,
+    },
+  });
+
+  if (!findTechnician) {
+    throw new Error("Technician profile not found in bookings");
+  }
+
+  const result = await prisma.booking.findFirst({
+    where: {
+      id: bookingId,
+      technicianId: findTechnician.id,
+    },
+  });
+
+  if (!result) {
+    throw new Error("Booking not found for this technician");
+  }
+
+  return result;
+};
+
+const updateBookingStatusInDB = async (userId: string, bookingId: string, payload: IBookingStatusUpdate) => {
+  // console.log("userId", userId)
+  // console.log("bookingId", bookingId)
+  // console.log("payload", payload)
+  const findTechnician = await prisma.technicianProfile.findUnique({
+    where: {
+      userId: userId,
+    },
+  });
+
+  if (!findTechnician) {
+    throw new Error("Technician profile not found in bookings");
+  }
+
+  const result = await prisma.booking.updateMany({
+    where: {
+      id: bookingId,
+      technicianId: findTechnician.id,
+    },
+    data: {
+      status: payload.status,
+    },
+  });
+
+  if (result.count === 0) {
+    throw new Error("Booking not found for this technician");
+  }
+
+  return result;
+};
+
 // const createTechnicianProfile = async (payload: ITechnicianProfile) => {
     
 //   const isExist = await prisma.technicianProfile.findUnique({
@@ -117,4 +174,6 @@ export const technicianService = {
   updateTechnicianProfile,
   updateAvailability,
   getTechnicianBookingsFromDB,
+  getaTechnicianBookingFromDB,
+  updateBookingStatusInDB,
 };

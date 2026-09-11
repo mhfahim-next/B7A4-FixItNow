@@ -9,6 +9,8 @@ const router = Router();
 
 router.get ("/", technicianController.allTechnician);
 router.get("/bookings/" , auth("TECHNICIAN"), technicianController.getTechnicianBookings);
+router.get("/bookings/:id" , auth("TECHNICIAN"), technicianController.getaTechnicianBooking);
+router.patch("/bookings/:id" , auth("TECHNICIAN"), technicianController.updateBookingStatus);
 
 router.get("/:id", technicianController.aTechnicianProfile);
 router.put("/profile/", auth("TECHNICIAN"), technicianController.updateTechnicianProfile);
@@ -18,4 +20,4 @@ router.put("/availability/", auth("TECHNICIAN"), technicianController.updateAvai
 
 
 
-export default router;
+export const technicianRoutes = router;

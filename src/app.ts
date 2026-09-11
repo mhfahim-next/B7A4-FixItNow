@@ -2,11 +2,15 @@ import express,{ Application,Request, Response } from "express";
 import cors from "cors"
 import cookieParser from "cookie-parser";
 import config from "./config";
-import authRoutes from "./modules/auth/auth.route";
-import serviceRoutes from "./modules/services/services.route";
-import technicianRoutes from "./modules/technician/technician.route";
-import categoryRoutes from "./modules/categories/categories.route";
-import bookingRoutes from "./modules/bookings/bookings.route";
+
+import {authRoutes} from "./modules/auth/auth.route";
+import {serviceRoutes} from "./modules/services/services.route";
+import {technicianRoutes} from "./modules/technician/technician.route";
+import {categoryRoutes} from "./modules/categories/categories.route";
+import {bookingRoutes} from "./modules/bookings/bookings.route";
+import { reviewRoute } from "./modules/review/review.route";
+import { adminRoute } from "./modules/admin/admin.route";
+
 
 const app : Application = express();
 app.use(cors({
@@ -33,6 +37,8 @@ app.use("/api/categories", categoryRoutes);
 
 app.use("/api/bookings", bookingRoutes);
 
+app.use("/api/review" , reviewRoute);
 
+app.use("/api/admin", adminRoute);
 
 export default app;

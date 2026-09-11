@@ -10,4 +10,4 @@ router.post("/",auth("CUSTOMER"), bookingController.addBooking);
 router.get("/",auth("CUSTOMER"), bookingController.getUsersBookings);
 router.get("/:id",auth("CUSTOMER"), bookingController.getSingleBooking);
 
-export default router;
+export const bookingRoutes = router;

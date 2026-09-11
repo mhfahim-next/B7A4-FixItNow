@@ -1,3 +1,5 @@
+import { BookingStatus } from "../../../generated/prisma/enums";
+
 export interface ITechnicianProfile {
   userId: string;
   bio?: string;
@@ -19,4 +21,8 @@ export interface IAvailability {
  [ day: string] :any;
   startTime: string;
   endTime: string;
+}
+
+export interface IBookingStatusUpdate {
+  status: BookingStatus;
 }

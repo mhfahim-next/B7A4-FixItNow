@@ -14,4 +14,4 @@ router.get("/me", auth("ADMIN", "CUSTOMER", "TECHNICIAN"), AuthController.getMe)
 // router.post("/refresh-token", AuthController.refreshTokenController)
 
 
-export default router;
+export const authRoutes = router;

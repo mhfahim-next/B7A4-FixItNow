@@ -12,4 +12,4 @@ router.get("/", categoryController.getAllCategories);
 
 
 
-export default router;
+export const categoryRoutes = router;
