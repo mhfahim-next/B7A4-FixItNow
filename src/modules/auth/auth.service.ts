@@ -1,11 +1,11 @@
 import bcrypt from "bcryptjs";
-
-import { IRegisterUser, TJwtPayload } from "./auth.interface";
+import AppError from "../../errors/AppError";
+import { IRegisterUser } from "./auth.interface";
 import { prisma } from "../../lib/prisma";
 import config from "../../config";
 import { jwtUtils } from "../../utils/jwt";
-
-import { JwtPayload, SignOptions } from "jsonwebtoken";
+import { SignOptions } from "jsonwebtoken";
+import httpStatus  from "http-status";
 
 const registerUserIntoDB = async (payload: IRegisterUser) => {
 
@@ -17,37 +17,16 @@ const registerUserIntoDB = async (payload: IRegisterUser) => {
   });
 
   if (isUserExist) {
-    throw new Error("User already exists");
+    throw new AppError(
+      httpStatus.CONFLICT,
+      "User already exists",
+    );
+    // throw new Error("User already exists");
   }
 
 
   const hashedPassword = await bcrypt.hash(payload.password, 10);
 
-
-
-  // const result = await prisma.user.create({
-  //   data: {
-  //     name: payload.name,
-  //     email: payload.email,
-  //     password: hashedPassword,
-  //     role: payload.role,
-  //   },
-  //   omit: {
-  //     password: true
-  //   }
-  // });
-
-  // if (payload.role === "TECHNICIAN") {
-  //   await prisma.technicianProfile.create({
-  //     data: {
-  //       userId: result.id,
-  //       experience: payload.experience ?? 0,
-  //       hourlyRate: payload.hourlyRate ?? 0,
-  //       location: payload.location ?? "",
-  //       skills: [],
-  //     },
-  //   });
-  // }
 
   const result = await prisma.$transaction(async (tx) => {
     const user = await tx.user.create({
@@ -85,13 +64,19 @@ const loginUserIntoDB = async (payload: { email: string; password: string }) => 
   });
 
   if (!user) {
-    throw new Error("User not found");
+    throw new AppError(
+      httpStatus.NOT_FOUND,
+      "User not found",
+    );
   }
   
   const isPasswordValid = await bcrypt.compare(payload.password, user.password);    
 
     if (!isPasswordValid) {
-      throw new Error("Invalid password");
+      throw new AppError(
+      httpStatus.NOT_ACCEPTABLE,
+      "Invalid Password",
+    );
     }
 
   const jwtPayload = {
@@ -132,7 +117,10 @@ const getMeFromDB = async (userId: string) => {
     });
 
     if (!userProfile) {
-        throw new Error("User not found");
+      throw new AppError(
+      httpStatus.NOT_FOUND,
+      "User not found",
+    );
     }
 
     return userProfile;

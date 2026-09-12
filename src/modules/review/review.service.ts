@@ -1,7 +1,8 @@
 import { BookingStatus } from "../../../generated/prisma/enums";
+import AppError from "../../errors/AppError";
 import { prisma } from "../../lib/prisma";
 import { IReview } from "./review.interface";
-
+import httpStatus  from "http-status";
 
 const createReviewInDB = async (payload: IReview, userId: string) => {
 
@@ -15,15 +16,18 @@ const createReviewInDB = async (payload: IReview, userId: string) => {
   });
 
   if (!booking) {
-    throw new Error("Booking not found");
+    throw new AppError(httpStatus.NOT_FOUND, "Booking not found");
+    // throw new Error("Booking not found");
   }
-console.log("Booking:", booking.customerId, "User ID:", userId);
+// console.log("Booking:", booking.customerId, "User ID:", userId);
   if (booking.customerId !== userId) {
-    throw new Error("You are not authorized to review this booking");
+    throw new AppError(httpStatus.UNAUTHORIZED, "You are not authorized to review this booking");
+    // throw new Error("");
   }
   console.log("Booking status:", booking.status);
   if (booking.status !== "COMPLETED") {
-    throw new Error("You can only review completed bookings");
+    throw new AppError(httpStatus.FORBIDDEN, "You can only review completed bookings");
+    // throw new Error("");
   }
 
   const existingReview = await prisma.review.findFirst({
@@ -33,7 +37,8 @@ console.log("Booking:", booking.customerId, "User ID:", userId);
   });
 
   if (existingReview) {
-    throw new Error("You have already reviewed this booking");
+    throw new AppError(httpStatus.CONFLICT, "You have already reviewed this booking");
+    // throw new Error("");
   }
 
   return prisma.review.create({
@@ -55,7 +60,8 @@ const getServiceReviewsFromDB = async (serviceId: string) => {
   });
 
   if (!service) {
-    throw new Error("Service not found");
+    throw new AppError(httpStatus.NOT_FOUND, "Service not found");
+    // throw new Error("Service not found");
   }
 
   return prisma.review.findMany({

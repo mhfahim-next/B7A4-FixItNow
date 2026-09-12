@@ -1,6 +1,7 @@
+import AppError from "../../errors/AppError";
 import { prisma } from "../../lib/prisma";
 import { IService } from "./services.interface";
-
+import httpStatus  from "http-status";
 
 const createService = async (payload: IService, userId: string) => {
   const technician = await prisma.technicianProfile.findUnique({
@@ -9,7 +10,7 @@ const createService = async (payload: IService, userId: string) => {
     },
   });
   if (!technician) {
-    throw new Error("Technician profile not found");
+    throw new AppError(httpStatus.NOT_FOUND, "Technician profile not found");
   }
   const result = await prisma.service.create({
     data: {

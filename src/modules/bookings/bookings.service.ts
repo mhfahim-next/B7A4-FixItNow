@@ -1,5 +1,7 @@
+import AppError from "../../errors/AppError";
 import { prisma } from "../../lib/prisma";
 import { IBookingCreate } from "./bookings.interface";
+import httpStatus  from "http-status";
 
 const addBookingInDB = async (bookingData: IBookingCreate, customerId: string) => {
 
@@ -13,8 +15,8 @@ const addBookingInDB = async (bookingData: IBookingCreate, customerId: string) =
   });
 
   if (!service) {
-    // throw new AppError(httpStatus.NOT_FOUND, "Service not found");
-    throw new Error("Service not found");
+    throw new AppError(httpStatus.NOT_FOUND, "Service not found");
+    // throw new Error("Service not found");
   }
 
   const technician = await prisma.technicianProfile.findUnique({
@@ -24,7 +26,8 @@ const addBookingInDB = async (bookingData: IBookingCreate, customerId: string) =
   });
 
   if (!technician?.availability) {
-    throw new Error("Technician is not available for booking");
+    throw new AppError(httpStatus.NOT_ACCEPTABLE, "Technician is not available for booking");
+    // throw new Error("Technician is not available for booking");
   }
 
   const booking = await prisma.booking.create({
@@ -66,7 +69,8 @@ const getSingleBookingFromDB = async (bookingId: string) => {
   });
 
   if (!booking) {
-    throw new Error("Booking not found");
+    throw new AppError(httpStatus.NOT_FOUND, "Booking not found");
+    // throw new Error("Booking not found");
   }
 
   return booking;

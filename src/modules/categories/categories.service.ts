@@ -1,6 +1,7 @@
+import AppError from "../../errors/AppError";
 import { prisma } from "../../lib/prisma";
 import { ICategoryCreate } from "./categories.interface";
-
+import httpStatus  from "http-status";
 
 const addCategory = async (categoryData: ICategoryCreate) => {
     const isExist = await prisma.category.findUnique({
@@ -10,7 +11,8 @@ const addCategory = async (categoryData: ICategoryCreate) => {
     });
 
     if (isExist) {
-        throw new Error("Category already exists");
+      throw new AppError(httpStatus.CONFLICT, "Category already exists");
+        // throw new Error("Category already exists");
     }
   const result = await prisma.category.create({
     data: categoryData,
