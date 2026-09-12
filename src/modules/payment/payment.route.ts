@@ -6,18 +6,18 @@ import { paymentController } from "./payment.controller";
 const router = Router();
 
 router.post(
-  "/payments/create",
+  "/create",
   auth("CUSTOMER"),
   paymentController.createPayment,
 );
-router.post("/payments/confirm", paymentController.confirmPayment);
+router.post("/confirm", paymentController.confirmPayment);
 router.get(
-  "/payments",
+  "/",
   auth(Role.CUSTOMER, Role.ADMIN),
   paymentController.getMyPayments,
 );
 router.get(
-  "/payments/:id",
+  "/:id",
   auth(Role.CUSTOMER, Role.ADMIN, Role.TECHNICIAN),
   paymentController.getPaymentById,
 );

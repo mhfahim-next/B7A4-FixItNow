@@ -107,9 +107,7 @@ const getMyPaymentsFromDB = async (userId: string) => {
   const payments = await prisma.payment.findMany({
     where: {
       booking: {
-        customerProfile: {
-          userId,
-        },
+        customerId: userId,
       },
     },
     include: {

@@ -13,8 +13,8 @@ route.get("/bookings/:id", auth("ADMIN"), AdminController.getSingleBooking);
 route.patch("/bookings/:id", auth("ADMIN"), AdminController.updateBookingStatus);
 route.get("/categories", auth("ADMIN"), AdminController.getAllCategories);
 route.post("/categories", auth("ADMIN"), AdminController.createCategory);
-route.get("/categories/:id", auth("ADMIN"), AdminController.getSingleCategory);
-route.patch("/categories/:id", auth("ADMIN"), AdminController.updateCategory);
+// route.get("/categories/:id", auth("ADMIN"), AdminController.getSingleCategory);
+// route.patch("/categories/:id", auth("ADMIN"), AdminController.updateCategory);
 route.delete("/categories/:id", auth("ADMIN"), AdminController.deleteCategory);
 
 

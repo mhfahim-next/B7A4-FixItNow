@@ -1,3 +1,4 @@
+import AppError from "../../errors/AppError";
 import { prisma } from "../../lib/prisma";
 import { IBookingStatusUpdate, ITechnicianProfile } from "./technician.interface";
 import httpStatus from "http-status";
@@ -16,7 +17,8 @@ const getATechnicianProfileFromDB = async (id: string) => {
   });
 
   if (!result) {
-    throw new Error("Technician profile not found");
+    throw new AppError(httpStatus.NOT_FOUND, "Technician profile not found");
+    // throw new Error("T");
   }
 
   return result;
@@ -32,7 +34,7 @@ const updateTechnicianProfile = async (id: string, payload: ITechnicianProfile) 
   });
 
   if (!isExist) {
-    throw new Error("Technician profile not found");
+    throw new AppError(httpStatus.NOT_FOUND, "Technician profile not found");
   }
 
   const result = await prisma.technicianProfile.update({
@@ -55,7 +57,7 @@ const updateAvailability = async (id: string, availability: boolean) => {
   });
 
   if (!isExist) {
-    throw new Error("Technician profile not found");
+    throw new AppError(httpStatus.NOT_FOUND, "Technician profile not found");
   }
 
   const result = await prisma.technicianProfile.update({
@@ -81,7 +83,8 @@ const getTechnicianBookingsFromDB = async (id: string) => {
   });
 
   if (!findTechnician) {
-    throw new Error("Technician profile not found in bookings");
+    throw new AppError(httpStatus.NOT_FOUND, "Technician profile not found");
+    // throw new Error("Technician profile not found in bookings");
   }
 
   const result = await prisma.booking.findMany({
@@ -101,7 +104,8 @@ const getaTechnicianBookingFromDB = async (userId: string, bookingId: string) =>
   });
 
   if (!findTechnician) {
-    throw new Error("Technician profile not found in bookings");
+    throw new AppError(httpStatus.NOT_FOUND, "Technician profile not found");
+    // throw new Error("Technician profile not found in bookings");
   }
 
   const result = await prisma.booking.findFirst({
@@ -112,7 +116,8 @@ const getaTechnicianBookingFromDB = async (userId: string, bookingId: string) =>
   });
 
   if (!result) {
-    throw new Error("Booking not found for this technician");
+    throw new AppError(httpStatus.NOT_FOUND, "Booking not found for this technician");
+    // throw new Error("");
   }
 
   return result;
@@ -129,7 +134,8 @@ const updateBookingStatusInDB = async (userId: string, bookingId: string, payloa
   });
 
   if (!findTechnician) {
-    throw new Error("Technician profile not found in bookings");
+    throw new AppError(httpStatus.NOT_FOUND, "Technician profile not found");
+    // throw new Error("Technician profile not found in bookings");
   }
 
   const result = await prisma.booking.updateMany({
@@ -143,7 +149,8 @@ const updateBookingStatusInDB = async (userId: string, bookingId: string, payloa
   });
 
   if (result.count === 0) {
-    throw new Error("Booking not found for this technician");
+    throw new AppError(httpStatus.NOT_FOUND, "Booking not found for this technician");
+    // throw new Error("");
   }
 
   return result;
