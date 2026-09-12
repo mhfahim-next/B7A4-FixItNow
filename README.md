@@ -446,7 +446,7 @@ All API endpoints can be tested using Postman.
 
 ## Postman Collection
 
-[![Run in Postman](https://img.shields.io/badge/Postman-View%20Collection-FF6C37?style=for-the-badge\&logo=postman\&logoColor=white)]((https://github.com/mhfahim-next/B7A4-FixItNow/blob/main/FixitNow.postman_collection.json))
+[![Run in Postman](https://img.shields.io/badge/Postman-View%20Collection-FF6C37?style=for-the-badge\&logo=postman\&logoColor=white)](https://github.com/mhfahim-next/B7A4-FixItNow/blob/main/FixitNow.postman_collection.json)
 
 ### 📚 API Documentation
 
