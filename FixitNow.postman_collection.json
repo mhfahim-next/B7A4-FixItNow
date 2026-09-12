@@ -26,11 +26,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/auth/register",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "auth",
@@ -56,11 +56,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/auth/login",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "auth",
@@ -86,11 +86,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/auth/login",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "auth",
@@ -116,11 +116,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/auth/login",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "auth",
@@ -149,11 +149,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/auth/me",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "auth",
@@ -187,11 +187,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/admin/users",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "admin",
@@ -217,11 +217,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/admin/users/ed58091c-c8b3-4e19-b047-1cb9bdd3052c",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "admin",
@@ -251,11 +251,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/admin/bookings",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "admin",
@@ -284,11 +284,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/admin/bookings/ce0e189c-e2f8-4915-b26f-50b542362327",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "admin",
@@ -315,11 +315,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/admin/bookings/ce0e189c-e2f8-4915-b26f-50b542362327",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "admin",
@@ -346,11 +346,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/admin/categories",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "admin",
@@ -379,11 +379,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/admin/categories",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "admin",
@@ -409,11 +409,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/admin/categories/dbd7435b-1d65-4be6-bb09-09ce3b8f9e07",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "admin",
@@ -445,11 +445,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/services",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "services"
@@ -477,11 +477,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/services",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "services"
@@ -514,11 +514,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/technicians/6754b3f4-165c-4cd1-9cb3-883f943b2afc",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "technicians",
@@ -547,11 +547,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/technicians",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "technicians"
@@ -576,11 +576,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/technicians/profile",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "technicians",
@@ -606,11 +606,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/technicians/availability",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "technicians",
@@ -639,11 +639,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/technicians/bookings",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "technicians",
@@ -672,11 +672,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/technicians/bookings/277aebde-3a03-4c57-a202-9ae26d683c76",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "technicians",
@@ -703,11 +703,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/technicians/bookings/277aebde-3a03-4c57-a202-9ae26d683c76",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "technicians",
@@ -739,11 +739,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/categories",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "categories"
@@ -771,11 +771,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/categories",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "categories"
@@ -805,11 +805,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/bookings",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "bookings"
@@ -837,11 +837,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/bookings",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "bookings"
@@ -869,11 +869,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/bookings/ce0e189c-e2f8-4915-b26f-50b542362327",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "bookings",
@@ -904,11 +904,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/review",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "review"
@@ -936,11 +936,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/review/my-reviews",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "review",
@@ -971,11 +971,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/payment/create",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "payment",
@@ -1001,11 +1001,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/payment/confrim",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "payment",
@@ -1031,11 +1031,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/payment/",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "payment",
@@ -1061,11 +1061,11 @@
             },
             "url": {
               "raw": "https://fixitnow-chi-three.vercel.app/api/payment/0128f9af-eb79-4f98-ab7b-bdef9121b9ee",
-              "protocol": "http",
+              "protocol": "https",
               "host": [
-                "localhost"
+                "fixitnow-chi-three.vercel.app"
               ],
-              "port": "3000",
+              
               "path": [
                 "api",
                 "payment",
