@@ -10,6 +10,7 @@
   <a href="#-features">Features</a> •
   <a href="#-tech-stack">Tech Stack</a> •
   <a href="#-api-documentation">API Documentation</a> •
+  <a href="https://github.com/mhfahim-next/B7A4-FixItNow/blob/main/FixitNow.postman_collection.json">Postman Collection</a> •
   <a href="#-installation">Installation</a> •
   <a href="#-database-erd">Database ERD</a>
 </p>
