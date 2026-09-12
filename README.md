@@ -31,37 +31,23 @@
 
 > 🚀 **Live API:** Replace the URL below with your deployed API.
 
-**[Open Live API](YOUR_LIVE_API_URL)**
+**[Open Live API](https://fixitnow-chi-three.vercel.app/)**
 
-Example:
-
-```text
-https://your-fixitnow-api.vercel.app
-```
 
 ### Health Check
 
 ```http
-GET /api/health
+GET /api/login
 ```
 
 Example:
 
 ```text
-YOUR_LIVE_API_URL/api/health
+YOUR_LIVE_API_URL/api/login
 ```
 
 ---
 
-## 📦 GitHub Repository
-
-**Source Code:**
-
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge\&logo=github)](YOUR_GITHUB_REPOSITORY_URL)
-
-👉 **[View Source Code](YOUR_GITHUB_REPOSITORY_URL)**
-
----
 
 ## 📖 About The Project
 
@@ -460,11 +446,11 @@ All API endpoints can be tested using Postman.
 
 ## Postman Collection
 
-[![Run in Postman](https://img.shields.io/badge/Postman-View%20Collection-FF6C37?style=for-the-badge\&logo=postman\&logoColor=white)](YOUR_POSTMAN_DOCUMENTATION_URL)
+[![Run in Postman](https://img.shields.io/badge/Postman-View%20Collection-FF6C37?style=for-the-badge\&logo=postman\&logoColor=white)]((https://github.com/mhfahim-next/B7A4-FixItNow/blob/main/FixitNow.postman_collection.json))
 
 ### 📚 API Documentation
 
-👉 **[View Postman API Documentation](YOUR_POSTMAN_DOCUMENTATION_URL)**
+👉 **[View Postman API Documentation](https://documenter.getpostman.com/view/57161795/2sBYAyt9FE#9fca049c-abf9-41f8-a398-21757eab91c7)**
 
 The Postman documentation should contain collections for:
 
